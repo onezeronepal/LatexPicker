@@ -1,7 +1,7 @@
 # LatexPicker
 Latex Picker just like DatePicker
 
-Demo at https://jugad.tech/latex/
+Demo at http://latex.onezero.com.np
 
 Just include https://cdn.onezero.com.np/latex/ekSunyeLatex.min.js?v=1.0.0 js at head
 
