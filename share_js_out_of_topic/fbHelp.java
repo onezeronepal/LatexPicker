@@ -1,4 +1,4 @@
-// java Program to create a simple JList 
+// java Program to create a program to measure ocean level
 import java.awt.event.*;
 import java.text.DecimalFormat;
 import java.awt.*; 
