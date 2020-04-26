@@ -77,7 +77,8 @@
         return this.each( function() {
         	element=this;
 			var textAreaLatex = $('.textArea');
-            if(!settings.buttonOnly && $(this).data("iconPicker")==undefined ){
+			alert($(this).data("latexPicker"));
+            if(!settings.buttonOnly && $(this).data("latexPicker")==undefined ){
             	$this=$(this).addClass("form-control");
             	$wraper=$("<div/>",{class:"input-group w-100 float-left"});
             	$this.wrap($wraper);
@@ -92,7 +93,7 @@
 	            	});
 	            })($this);
 
-            	$(this).data("iconPicker",{attached:true});
+            	$(this).data("latexPicker",{attached:true});
             }
         
 	        function createUI($element,$laTexParent){
