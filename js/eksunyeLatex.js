@@ -78,6 +78,7 @@
         	element=this;
 			var textAreaLatex = $('.textArea');
             if(!settings.buttonOnly && $(this).data("latexPicker")==undefined ){
+				setTimeout(function(){ try{ MathJax.typeset(); }catch(err){ try{ MathJax.typeset(); }catch(err){ var a =1; } } }, 1000);   		
             	$this=$(this).addClass("form-control");
             	$wraper=$("<div/>",{class:"input-group w-100 float-left"});
             	$this.wrap($wraper);
