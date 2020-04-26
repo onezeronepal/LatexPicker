@@ -83,7 +83,7 @@
             	$wraper=$("<div/>",{class:"input-group w-100 float-left"});
             	$this.wrap($wraper);
 				var elemObj = $(this);
-            	$button=$("<div class=\"input-group-append w-10 inputLatexBtn\"><span class=\"input-group-text   pointer\">Æ’(x)</span></div>");
+            	$button=$("<div class=\"input-group-append w-10 inputLatexBtn\"><span class=\"input-group-text   pointer\">ƒ(x)</span></div>");
             	$this.after($button);
             	(function(ele){
             		$button.click(function(){
@@ -115,48 +115,48 @@
 							</select>\
 							</div>';
 			
-				var selectColor ='<div class="col-sm-3">\
+								var selectColor ='<div class="col-3">\
 				           <select class="form-control selectGreek selectpicker">\
-								<option value="">Î± Î² Î³</option>\
-								<option value="\\alpha">Î±</option>\
-								<option value="\\beta">Î²</option>\
-								<option value="\\chi">Ï‡</option>\
-								<option value="\\delta">Î´</option>\
-								<option value="\\epsilon">Ïµ</option>\
-								<option value="\\eta">Î·</option>\
-								<option value="\\gamma">Î³</option>\
-								<option value="\\kappa">Îº</option>\
-								<option value="\\lambda">Î»</option>\
-								<option value="\\mu">Âµ</option>\
-								<option value="\\nu">Î½</option>\
+								<option value="">α β γ</option>\
+								<option value="\\alpha">α</option>\
+								<option value="\\beta">β</option>\
+								<option value="\\chi">χ</option>\
+								<option value="\\delta">δ</option>\
+								<option value="\\epsilon">ϵ</option>\
+								<option value="\\eta">η</option>\
+								<option value="\\gamma">γ</option>\
+								<option value="\\kappa">κ</option>\
+								<option value="\\lambda">λ</option>\
+								<option value="\\mu">µ</option>\
+								<option value="\\nu">ν</option>\
 								<option value="\\o">o</option>\
-								<option value="\\omega">Ï‰</option>\
-								<option value="\\phi">Ï†</option>\
-								<option value="\\psi">Ïˆ</option>\
-								<option value="\\rho">Ï</option>\
-								<option value="\\sigma">Ïƒ</option>\
-								<option value="\\tau">Ï„</option>\
-								<option value="\\theta">Î¸</option>\
-								<option value="\\upsilon">Ï…</option>\
-								<option value="\\xi">Î¾</option>\
+								<option value="\\omega">ω</option>\
+								<option value="\\phi">φ</option>\
+								<option value="\\psi">ψ</option>\
+								<option value="\\rho">ρ</option>\
+								<option value="\\sigma">σ</option>\
+								<option value="\\tau">τ</option>\
+								<option value="\\theta">θ</option>\
+								<option value="\\upsilon">υ</option>\
+								<option value="\\xi">ξ</option>\
 								<option value="\\digamma">J</option>\
-								<option value="\\varepsilon">Îµ</option>\
-								<option value="\\varkappa">Îº</option>\
-								<option value="\\varphi">Ï•</option>\
-								<option value="\\varpi">Î±</option>\
+								<option value="\\varepsilon">ε</option>\
+								<option value="\\varkappa">κ</option>\
+								<option value="\\varphi">ϕ</option>\
+								<option value="\\varpi">α</option>\
 								<option value="\\varrho">q</option>\
-								<option value="\\varsigma">Ï‚</option>\
-								<option value="\\Delta">âˆ†</option>\
-								<option value="\\Gamma">Î“</option>\
-								<option value="\\Lambda">Î›</option>\
-								<option value="\\Omega">â„¦</option>\
-								<option value="\\Phi">Î¦</option>\
-								<option value="\\Pi">Î </option>\
-								<option value="\\Psi">Î¨</option>\
-								<option value="\\Theta">Î˜</option>\
-								<option value="\\Upsilon">Î¥</option>\
-								<option value="\\Xi">Îž</option>\
-								<option value="\\beth">Å‚</option>\
+								<option value="\\varsigma">ς</option>\
+								<option value="\\Delta">∆</option>\
+								<option value="\\Gamma">Γ</option>\
+								<option value="\\Lambda">Λ</option>\
+								<option value="\\Omega">Ω</option>\
+								<option value="\\Phi">Φ</option>\
+								<option value="\\Pi">Π</option>\
+								<option value="\\Psi">Ψ</option>\
+								<option value="\\Theta">Θ</option>\
+								<option value="\\Upsilon">Υ</option>\
+								<option value="\\Xi">Ξ</option>\
+								<option value="\\beth">ł</option>\
 								<option value="\\daleth">Y</option>\
 					           </select>\
 				        </div>';
