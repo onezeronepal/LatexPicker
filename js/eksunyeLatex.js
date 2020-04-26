@@ -201,7 +201,7 @@
 				$latexImg = $('.svgLaText');
 	        	$popup.addClass('dropdown-menu').show();
 	        	
-
+ 
 				$popup.mouseenter(function() {  mouseOver=true;  }).mouseleave(function() { mouseOver=false;  });
 
 	        	var lastVal="", start_index=0,per_page=30,end_index=start_index+per_page;
