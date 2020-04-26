@@ -14,9 +14,58 @@
  */
 
 (function($) {
+	var scriptPoly = document.createElement("script");  // create a script DOM node
+    scriptPoly.src = "https://polyfill.io/v3/polyfill.min.js?features=es6";  // set its src to the provided URL
+    document.head.appendChild(scriptPoly);
+	
 	var script = document.createElement("script");  // create a script DOM node
-    script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js";  // set its src to the provided URL
+    script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";  // set its src to the provided URL
     document.head.appendChild(script);
+    
+    var scriptSelect = document.createElement("script");  // create a script DOM node
+    scriptSelect.src = "https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js";  // set
+    document.head.appendChild(scriptSelect);
+    
+    var styleSelect = document.createElement("link");
+    styleSelect.href = "https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css";
+    styleSelect.rel = "stylesheet";
+    document.head.appendChild(styleSelect);
+    
+    var styleSelect = document.createElement("link");
+    styleSelect.href = "https://cdn.onezero.com.np/latex/eksunyeLatex.css?v=1.0.0.7";
+    styleSelect.rel = "stylesheet";
+    document.head.appendChild(styleSelect);
+    
+
+    
+	MathJax = {
+		tex2jax: {
+			inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+			processEscapes: true
+		},
+		options: {
+			renderActions: {
+				addMenu: [0, '', '']
+			}
+		},
+		svg: {
+		    scale: 1,                      // global scaling factor for all expressions
+		    minScale: .5,                  // smallest scaling factor to use
+		    matchFontHeight: true,         // true to match ex-height of surrounding font
+		    mtextInheritFont: false,       // true to make mtext elements use surrounding font
+		    merrorInheritFont: true,       // true to make merror text use surrounding font
+		    mathmlSpacing: false,          // true for MathML spacing rules, false for TeX rules
+		    skipAttributes: {},            // RFDa and other attributes NOT to copy to the output
+		    exFactor: .5,                  // default size of ex in em units
+		    displayAlign: 'center',        // default for indentalign when set to 'auto'
+		    displayIndent: '0',            // default for indentshift when set to 'auto'
+		    fontCache: 'local',            // or 'global' or 'none'
+		    localID: null,                 // ID to use for local font cache (for single equation processing)
+		    internalSpeechTitles: true,    // insert <title> tags with speech content
+		    titleID: 0                     // initial id number to use for aria-labeledby titles
+		  }
+	};
+         
     $.fn.latexEditor = function( options ) {
         var mouseOver=false;
         var $popup=null;
@@ -30,13 +79,13 @@
 			var textAreaLatex = $('.textArea');
             if(!settings.buttonOnly && $(this).data("iconPicker")==undefined ){
             	$this=$(this).addClass("form-control");
-            	$wraper=$("<div/>",{class:"input-group"});
+            	$wraper=$("<div/>",{class:"input-group w-100 float-left"});
             	$this.wrap($wraper);
 				var elemObj = $(this);
-            	$button=$("<div class=\"input-group-append\"><span class=\"input-group-text  pointer\">ƒ(x)</span></div>");
+            	$button=$("<div class=\"input-group-append w-10 inputLatexBtn\"><span class=\"input-group-text   pointer\">Æ’(x)</span></div>");
             	$this.after($button);
             	(function(ele){
-	            	$button.click(function(){
+            		$button.click(function(){
 			       		createUI(ele,elemObj);
 			       		showList(ele,icons);
 			    		setTimeout(function(){ try{ MathJax.typeset(); }catch(err){ try{ MathJax.typeset(); }catch(err){ var a =1; } } }, 1000);   		
@@ -55,65 +104,65 @@
 		        	class:'icon-popup'
 	        	})
 
-				var selectMatrix ='<div class="col-3">\
+				var selectMatrix ='<div class="col-sm-3">\
 				           <select class="form-control selectMatrix selectpicker">\
 								<option value="">Matrix</option>\
-								<option value="null">Matrix</option>\
+								<option value="\\begin{matrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{matrix}">Matrix</option>\
 								<option value="\\begin{bmatrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{bmatrix}">Matrix []</option>\
 								<option value="\\begin{pmatrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{pmatrix}">Matrix {}</option>\
 								<option value="\\begin{smatrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{smatrix}">Matrix ()</option>\
 							</select>\
 							</div>';
 			
-				var selectColor ='<div class="col-3">\
+				var selectColor ='<div class="col-sm-3">\
 				           <select class="form-control selectGreek selectpicker">\
-								<option value="">α β γ</option>\
-								<option value="\\alpha">α</option>\
-								<option value="\\beta">β</option>\
-								<option value="\\chi">χ</option>\
-								<option value="\\delta">δ</option>\
-								<option value="\\epsilon">ϵ</option>\
-								<option value="\\eta">η</option>\
-								<option value="\\gamma">γ</option>\
-								<option value="\\kappa">κ</option>\
-								<option value="\\lambda">λ</option>\
-								<option value="\\mu">µ</option>\
-								<option value="\\nu">ν</option>\
+								<option value="">Î± Î² Î³</option>\
+								<option value="\\alpha">Î±</option>\
+								<option value="\\beta">Î²</option>\
+								<option value="\\chi">Ï‡</option>\
+								<option value="\\delta">Î´</option>\
+								<option value="\\epsilon">Ïµ</option>\
+								<option value="\\eta">Î·</option>\
+								<option value="\\gamma">Î³</option>\
+								<option value="\\kappa">Îº</option>\
+								<option value="\\lambda">Î»</option>\
+								<option value="\\mu">Âµ</option>\
+								<option value="\\nu">Î½</option>\
 								<option value="\\o">o</option>\
-								<option value="\\omega">ω</option>\
-								<option value="\\phi">φ</option>\
-								<option value="\\psi">ψ</option>\
-								<option value="\\rho">ρ</option>\
-								<option value="\\sigma">σ</option>\
-								<option value="\\tau">τ</option>\
-								<option value="\\theta">θ</option>\
-								<option value="\\upsilon">υ</option>\
-								<option value="\\xi">ξ</option>\
+								<option value="\\omega">Ï‰</option>\
+								<option value="\\phi">Ï†</option>\
+								<option value="\\psi">Ïˆ</option>\
+								<option value="\\rho">Ï</option>\
+								<option value="\\sigma">Ïƒ</option>\
+								<option value="\\tau">Ï„</option>\
+								<option value="\\theta">Î¸</option>\
+								<option value="\\upsilon">Ï…</option>\
+								<option value="\\xi">Î¾</option>\
 								<option value="\\digamma">J</option>\
-								<option value="\\varepsilon">ε</option>\
-								<option value="\\varkappa">κ</option>\
-								<option value="\\varphi">ϕ</option>\
-								<option value="\\varpi">α</option>\
+								<option value="\\varepsilon">Îµ</option>\
+								<option value="\\varkappa">Îº</option>\
+								<option value="\\varphi">Ï•</option>\
+								<option value="\\varpi">Î±</option>\
 								<option value="\\varrho">q</option>\
-								<option value="\\varsigma">ς</option>\
-								<option value="\\Delta">∆</option>\
-								<option value="\\Gamma">Γ</option>\
-								<option value="\\Lambda">Λ</option>\
-								<option value="\\Omega">Ω</option>\
-								<option value="\\Phi">Φ</option>\
-								<option value="\\Pi">Π</option>\
-								<option value="\\Psi">Ψ</option>\
-								<option value="\\Theta">Θ</option>\
-								<option value="\\Upsilon">Υ</option>\
-								<option value="\\Xi">Ξ</option>\
-								<option value="\\beth">ł</option>\
+								<option value="\\varsigma">Ï‚</option>\
+								<option value="\\Delta">âˆ†</option>\
+								<option value="\\Gamma">Î“</option>\
+								<option value="\\Lambda">Î›</option>\
+								<option value="\\Omega">â„¦</option>\
+								<option value="\\Phi">Î¦</option>\
+								<option value="\\Pi">Î </option>\
+								<option value="\\Psi">Î¨</option>\
+								<option value="\\Theta">Î˜</option>\
+								<option value="\\Upsilon">Î¥</option>\
+								<option value="\\Xi">Îž</option>\
+								<option value="\\beth">Å‚</option>\
 								<option value="\\daleth">Y</option>\
 					           </select>\
 				        </div>';
 				
-				var selectFunction = '<div class="col-3">'+
+				var selectFunction = '<div class="col-sm-3">'+
 				'<select  class="form-control selectFuntion selectpicker" title="Function">'+
-				'    <option selected="selected" value="">ƒ(x)</option>'+
+				'    <option selected="selected" value="">Æ’(x)</option>'+
 				'    <optgroup label="Trig">'+
 				'        <option value="\\sin">sin</option>'+
 				'        <option value="\\cos">cos</option>'+
@@ -170,38 +219,43 @@
 				'</div>';
 				
 				var resImgLaTex;
-				if($laTexParent.value == ""){ resImgLaTex = "\\alpha\\beta\\gamma123"; }else{ resImgLaTex = $laTexParent.val();  }
+				if($laTexParent.val() == ""){ resImgLaTex = "";  }else{ resImgLaTex = $laTexParent.val();  }
 	        	$popup.html('<div class="ip-control w-100"> \
 								<div class="container-fluid  mb-2">\
 									<div class="row">\
-										<div class="col-6">\
-											<textarea  h-100 w-100 onchange="refreshLatex()" onkeyup="refreshLatex()" onpaste="refreshLatex()" class="form-control textArea ip-search">'+resImgLaTex+'</textarea> \
+										<div class="col-sm-6" style="padding:2px">\
+											<textarea w-100 onchange="refreshLatex()" onkeyup="refreshLatex()" onpaste="refreshLatex()" class="form-control textArea ip-search" style="height:90% !important;">'+resImgLaTex+'</textarea> \
+												<span style="font-size:8px; padding-left:10px;">\
+													<span style="cursor:pointer;" onclick="insert(\'$$$$\',2,100);"><b>\$\$</b>LaTex<b>\$\$</b> = Large Latex </span> & 	<span  style="cursor:pointer;" onclick="insert(\'\\\\(\\\\)\',2,100);"><b>\\(</b>LaTex<b>\\)</b> = Inline Latex </span>\
+												</span>\
 										</div>\
-										<div class="col-6">\
-											<div class="svgLaText  h-100 w-100">$$'+resImgLaTex+'$$</div>\
+										<div class="col-sm-3" style="font-size:12px;">\
+											<div class="svgLaText  h-75 w-100">'+resImgLaTex+'</div>\
 										</div>\
 									</div>\
 								</div>\
 						     </div>\
-							 <div class="container-fluid mt-1 dropDown"> \
-							 <div class="row">\
-							 '+selectMatrix+'\
-							 '+selectFunction+'\
-							 '+selectColor+'\
-							 <div class="col-3 text-right">\
-								<button  type="button" class="btn btn-primary sendDataLatex">🖫 Save</button>\
-							 <\div>\
+							 <div class="container-fluid mt-2 dropDown"> \
+								 <div class="row" style="width:100%; padding-top:10px; padding-bottom:20px; position:absolute;">\
+									 '+selectMatrix+'\
+									 '+selectFunction+'\
+									 '+selectColor+'\
+									 <div class="col-sm-3">\
+										<button  type="button" class="btn btn-primary sendDataLatex">ðŸ–«SAVE</button>\
+									 </div>\
+								 </div>\
 							 </div>\
+						     <div class="container-fluid icon-list w-100">\
+						    	Loading...\
 							 </div>\
-						     <div class="icon-list w-100">\
-							 </div> \
 					         ').appendTo("body");
 	        	$('.selectpicker').selectpicker('refresh');
 	        	$textAreaLatex = $('.textArea');
 				$latexImg = $('.svgLaText');
 	        	$popup.addClass('dropdown-menu').show();
 	        	
- 
+	        	if(resImgLaTex === ""){ insert('$$$$',2,100); }
+
 				$popup.mouseenter(function() {  mouseOver=true;  }).mouseleave(function() { mouseOver=false;  });
 
 	        	var lastVal="", start_index=0,per_page=30,end_index=start_index+per_page;
@@ -228,7 +282,7 @@
 					var laText = $(this).val()+' ';
 					var initCur = $textAreaLatex.getCursorPosition();
 					$textAreaLatex.insertLaText(laText);
-					$latexImg.html('$$'+$textAreaLatex.val()+'$$');
+					$latexImg.html($textAreaLatex.val());
 					$textAreaLatex.selectRange(initCur + laText.length);
 					refreshLatex();
 					$(this).selectpicker('refresh');
@@ -274,7 +328,7 @@
 			{
 				var initCur = $textAreaLatex.getCursorPosition();
 				$textAreaLatex.insertLaText(laText+" ");
-				$latexImg.html('$$'+$textAreaLatex.val()+'$$');
+				$latexImg.html($textAreaLatex.val());
 				if(cursorS == undefined){ cursorS = laText.length;}
 				$textAreaLatex.selectRange(initCur + cursorS);
 				refreshLatex();
@@ -282,8 +336,24 @@
 			
 			window.refreshLatex = function()
 			{
-				$latexImg.html('$$'+$textAreaLatex.val()+'$$');
+				$latexImg.html($textAreaLatex.val());
 				MathJax.typeset();
+			}
+			
+			window.hasClass = function(elem,className)
+			{
+    			return elem.className.split(' ').indexOf(className) > -1;
+			}
+			
+			window.replaceAll = function(str, find, replace) {
+			  return str.replace(new RegExp(find, 'g'), replace);
+			}
+			
+			window.removeElementsByClass = function(className){
+			    var elements = document.getElementsByClassName(className);
+			    while(elements.length > 0){
+			        elements[0].parentNode.removeChild(elements[0]);
+			    }
 			}
         });
     }
@@ -357,5 +427,5 @@
         return pos;
     }
 	
-
+ 
 }(jQuery));
