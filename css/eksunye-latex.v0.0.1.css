@@ -1,0 +1,122 @@
+/*!
+    * Bootstrap 3.0 IconPicker Style
+    * Custom Style Elements for IconPicker
+    *
+    * Intigrated, Processed and  Built with passion by @titosust; Web Developer @vizrt
+  */
+
+.latex-popup{
+	position: fixed;
+	width: 100vw;
+	height: 10vh;
+	top:calc(100vh - 10vh);
+	left:0px;
+	right:0px;
+	bottom:0px;
+	color: #000;
+	font-size: 14px;
+}
+.latex-popup:before {
+ content: '';
+display: inline-block;
+border-left: 7px solid transparent;
+border-right: 7px solid transparent;
+border-bottom: 7px solid #ccc;
+border-bottom-color: rgba(0,0,0,0.2);
+position: absolute;
+top: -7px;
+left: 6px;
+}
+.latex-popup:after {
+  content: '';
+display: inline-block;
+border-left: 6px solid transparent;
+border-right: 6px solid transparent;
+border-bottom: 6px solid #fff;
+position: absolute;
+top: -6px;
+left: 7px;
+}
+.latex-popup a:hover{
+	background-color:#eee;
+}
+.latex-popup .latex-title{
+	position: relative;
+	background-color: #563d7c;
+	color: #fff;
+	border: 1px solid #463265;
+	
+}
+.latex-popup .latex-title h4{
+	margin: 0;
+	padding: 8px 8px;
+	font-size: 17px;
+	font-weight: bold;
+}
+.pointer{
+	cursor: pointer;
+}
+.latex-popup .ip-control{
+	background-color: white;
+	height: 90px;
+	margin-top: -2px;
+	padding-top: 2px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.latex-popup .ip-search{
+	width: calc(100% - 16px);
+	padding:1px;
+	margin-left: 8px;
+	background-repeat: no-repeat;
+}
+
+.latex-popup .latex-list{
+	position: relative;
+	top: 5px;
+	bottom: 0;
+	overflow-y: scroll;
+	padding: 2px;
+	height:calc(300px - 90px - 55px);
+}
+.latex-list ul{
+	margin: 0;
+	padding: 0;
+	margin-bottom: 10px;
+}
+.latex-popup .ip-control ul{margin: 4px 0;padding: 0;}
+.latex-popup .ip-control ul li{float: left;list-style-type: none;}
+.latex-popup .ip-control ul li a{margin-top: -3px;color:#373737;}
+.latex-popup .ip-control ul li:first-child{margin-left: 3px;}
+.latex-popup .ip-control ul li:last-child{position: absolute;right: 0;top: 9px;}
+
+.latex-list ul li{
+	display: inline-block;
+	margin: 2px;
+	float: left;
+	border: 1px dotted #eee;
+	padding:1px;
+	width:49px;
+	height:49px;
+}
+
+.latex-list ul li a{
+	display: block;
+	text-decoration: none;
+	color:#373737;
+	padding: 1px;
+	font-size:12px;
+}
+.latex-list ul li a:hover{color:#000;}
+
+.textArea{
+	height: 70px !important;
+	margin: 10px;
+	width: calc(100% - 20px);
+}
+.selectColor .selectFunction{
+	font-size:12px;
+	padding:0px;
+}
+.dropDown{
+	height:35px;
+}
