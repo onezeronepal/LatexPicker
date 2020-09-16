@@ -32,7 +32,7 @@
     document.head.appendChild(styleSelect);
     
     var styleSelect = document.createElement("link");
-    styleSelect.href = "/css/eksunye-latex.v0.0.1.css";
+    styleSelect.href = "file:///D:/Documents/GitHub/LatexPicker/css/eksunye-latex.v0.0.1.css";
     styleSelect.rel = "stylesheet";
     document.head.appendChild(styleSelect);
     
@@ -76,7 +76,7 @@
         }, options);
         return this.each( function() {
         	element=this;
-			var textAreaLatex = $('.textArea');
+			var textAreaLatex = $('.textAreaOneZeroLatex');
             if(!settings.buttonOnly && $(this).data("latexPicker")==undefined ){
 				setTimeout(function(){ try{ MathJax.typeset(); }catch(err){ try{ MathJax.typeset(); }catch(err){ var a =1; } } }, 1000);   		
             	$this=$(this).addClass("form-control");
@@ -98,15 +98,14 @@
         
 	        function createUI($element,$laTexParent){
 	        	$popup=$('<div/>',{
-	        		// css: {
-		        	// 	'top':$element.offset().top+$element.outerHeight()+6,
-		        	// 	'left':$element.offset().left
-		        	// },
+	        		css: {
+		        		'opacity':0.93,
+		        	},
 		        	class:'latex-popup'
 	        	})
 
-				var selectMatrix ='<div class="col-sm-3">\
-				           <select class="form-control selectMatrix selectpicker">\
+				var selectMatrix ='<div class="col-3">\
+				           <select class="form-control selectMatrix selectpicker-latex">\
 								<option value="">Matrix</option>\
 								<option value="\\begin{matrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{matrix}">Matrix</option>\
 								<option value="\\begin{bmatrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{bmatrix}">Matrix []</option>\
@@ -116,7 +115,7 @@
 							</div>';
 			
 								var selectColor ='<div class="col-3">\
-				           <select class="form-control selectGreek selectpicker">\
+				           <select class="form-control selectGreek selectpicker-latex">\
 								<option value="">α β γ</option>\
 								<option value="\\alpha">α</option>\
 								<option value="\\beta">β</option>\
@@ -161,8 +160,8 @@
 					           </select>\
 				        </div>';
 				
-				var selectFunction = '<div class="col-sm-3">'+
-				'<select  class="form-control selectFuntion selectpicker" title="Function">'+
+				var selectFunction = '<div class="col-3">'+
+				'<select  class="form-control selectFuntion selectpicker-latex" title="Function">'+
 				'    <option selected="selected" value="">Æ’(x)</option>'+
 				'    <optgroup label="Trig">'+
 				'        <option value="\\sin">sin</option>'+
@@ -218,42 +217,47 @@
 				'    </optgroup>'+
 				'</select>'+
 				'</div>';
-				
+
 				var resImgLaTex;
 				if($laTexParent.val() == ""){ resImgLaTex = "";  }else{ resImgLaTex = $laTexParent.val();  }
-	        	$popup.html('<div class="ip-control w-100"> \
-								<div class="container-fluid  mb-2">\
-									<div class="row">\
-										<div class="col-sm-6" style="padding:2px">\
-											<textarea w-100 onchange="refreshLatex()" onkeyup="refreshLatex()" onpaste="refreshLatex()" class="form-control textArea ip-search" style="height:90% !important;">'+resImgLaTex+'</textarea> \
-												<span style="font-size:8px; padding-left:10px;">\
-													<span style="cursor:pointer;" onclick="insert(\'$$$$\',2,100);"><b>\$\$</b>LaTex<b>\$\$</b> = Large Latex </span> & 	<span  style="cursor:pointer;" onclick="insert(\'\\\\(\\\\)\',2,100);"><b>\\(</b>LaTex<b>\\)</b> = Inline Latex </span>\
-												</span>\
+	        	$popup.html('<div class="a-div w-100"> \
+								<div class="container-fluid">\
+									<div class="row p-2">\
+										<div class="col-6" style="padding:2px">\
+											<textarea class="form-control textAreaOneZeroLatex ip-search w-100 h-100">'+resImgLaTex+'</textarea> \
 										</div>\
-										<div class="col-sm-3" style="font-size:12px;">\
+										<div class="col-4" style="font-size:12px;">\
 											<div class="svgLaText  h-75 w-100">'+resImgLaTex+'</div>\
+										</div>\
+										<div class="col-2">\
+											<span style="cursor:pointer;" onclick="$(\'.textAreaOneZeroLatex\').val($(\'.textAreaOneZeroLatex\').val().replace(\'\\\\(\', \'$$$$\'));$(\'.textAreaOneZeroLatex\').val($(\'.textAreaOneZeroLatex\').val().replace(\'\\\\)\', \'$$$$\'));">\
+												<span class="w-50 float-left"><b>\$\$</b>LaTex<b>\$\$</b></span> = Large Latex \
+											</span> <br/>\
+											<span  style="cursor:pointer;" onclick="$(\'.textAreaOneZeroLatex\').val($(\'.textAreaOneZeroLatex\').val().replace(\'$$\',\'\\\\(\'));$(\'.textAreaOneZeroLatex\').val($(\'.textAreaOneZeroLatex\').val().replace(\'$$\', \'\\\\)\'));">\
+												<span class="w-50 float-left"><b>\\(</b>LaTex<b>\\)</b></span> = Inline Latex \
+											</span>\
 										</div>\
 									</div>\
 								</div>\
 						     </div>\
-							 <div class="container-fluid mt-2 dropDown"> \
-								 <div class="row" style="width:100%; padding-top:10px; padding-bottom:20px; position:absolute;">\
+							 <div class="b-div container-fluid mt-2 mb-3"> \
+								 <div class="row p-2" style="width:100%; padding-top:10px; padding-bottom:20px; position:absolute;">\
 									 '+selectMatrix+'\
 									 '+selectFunction+'\
 									 '+selectColor+'\
-									 <div class="col-sm-3">\
-										<button  type="button" class="btn btn-primary sendDataLatex">ðŸ–«SAVE</button>\
+									 <div class="col-3 text-right">\
+										<button  type="button" class="btn btn-primary sendDataLatex text-white"><svg class="text-white" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.25 100.25"><path fill="white" d="M83.061 27.94l-11-11A1.5 1.5 0 0071 16.501H18a1.5 1.5 0 00-1.5 1.5v64a1.5 1.5 0 001.5 1.5h64a1.5 1.5 0 001.5-1.5v-53a1.5 1.5 0 00-.439-1.061zM34.5 19.5h31v21h-31v-21zm37 61h-43v-26h43v26zm9 0h-6V53a1.5 1.5 0 00-1.5-1.5H27a1.5 1.5 0 00-1.5 1.5v27.5h-6v-61h12V42a1.5 1.5 0 001.5 1.5h34a1.5 1.5 0 001.5-1.5V19.5h1.879L80.5 29.621V80.5z"/></svg> SAVE</button>\
 									 </div>\
 								 </div>\
 							 </div>\
-						     <div class="container-fluid latex-list w-100">\
+						     <div class="container-fluid latex-list w-100 h-100">\
 						    	Loading...\
 							 </div>\
 					         ').appendTo("body");
-	        	$('.selectpicker').selectpicker('refresh');
-	        	$textAreaLatex = $('.textArea');
+	        	$('.selectpicker-latex').selectpicker('refresh');
+	        	$textAreaLatex = $('.textAreaOneZeroLatex');
 				$latexImg = $('.svgLaText');
-	        	$popup.addClass('dropdown-menu').show();
+	        	$popup.append('<span style="position: fixed; top: 0px;right: 0px;padding: 5px;">ekSunye LatexPicker v0.0.1</span>').addClass('d-solid bg-light-90').show();
 	        	
 	        	if(resImgLaTex === ""){ insert('$$$$',2,100); }
 
@@ -279,13 +283,12 @@
 	                }
 	            });
 				
-				$(".selectpicker",$popup).change(function(){
+				$(".selectpicker-latex",$popup).change(function(){
 					var laText = $(this).val()+' ';
 					var initCur = $textAreaLatex.getCursorPosition();
 					$textAreaLatex.insertLaText(laText);
 					$latexImg.html($textAreaLatex.val());
 					$textAreaLatex.selectRange(initCur + laText.length);
-					refreshLatex();
 					$(this).selectpicker('refresh');
 					$textAreaLatex.focus();
 				})
@@ -332,7 +335,6 @@
 				$latexImg.html($textAreaLatex.val());
 				if(cursorS == undefined){ cursorS = laText.length;}
 				$textAreaLatex.selectRange(initCur + cursorS);
-				refreshLatex();
 			}
 			
 			window.refreshLatex = function()
@@ -426,7 +428,24 @@
             pos = Sel.text.length - SelLength;
         }
         return pos;
-    }
-	
+	}
+	var OldStringEkSunyeLatexPickerVar;
+	setInterval(() => {
+		var varTxtAreaEkSunye = $('.textAreaOneZeroLatex');
+		if(OldStringEkSunyeLatexPickerVar != varTxtAreaEkSunye.val())
+		{
+			refreshLatex();
+			OldStringEkSunyeLatexPickerVar = varTxtAreaEkSunye.val();
+		}
+		
+	}, 1000);
+
+	// $('body').on('keyup keypress blur change', 'textarea.textAreaOneZeroLatex', function() {
+	// 	if(OldString != $(this).val())
+	// 	{
+	// 		refreshLatex();
+	// 		OldString = $(this).val();
+	// 	}
+	// });
  
 }(jQuery));

@@ -8,35 +8,19 @@
 .latex-popup{
 	position: fixed;
 	width: 100vw;
-	height: 10vh;
-	top:calc(100vh - 10vh);
+	height: 25em;
+	top:calc(100vh - 25em);
 	left:0px;
 	right:0px;
 	bottom:0px;
 	color: #000;
 	font-size: 14px;
 }
-.latex-popup:before {
- content: '';
-display: inline-block;
-border-left: 7px solid transparent;
-border-right: 7px solid transparent;
-border-bottom: 7px solid #ccc;
-border-bottom-color: rgba(0,0,0,0.2);
-position: absolute;
-top: -7px;
-left: 6px;
+
+.bg-light-90{
+	background-color: #eee;
 }
-.latex-popup:after {
-  content: '';
-display: inline-block;
-border-left: 6px solid transparent;
-border-right: 6px solid transparent;
-border-bottom: 6px solid #fff;
-position: absolute;
-top: -6px;
-left: 7px;
-}
+
 .latex-popup a:hover{
 	background-color:#eee;
 }
@@ -58,10 +42,13 @@ left: 7px;
 }
 .latex-popup .ip-control{
 	background-color: white;
-	height: 90px;
-	margin-top: -2px;
-	padding-top: 2px;
 	border-bottom: 1px solid #e5e5e5;
+}
+.a-div{
+	height:8em;
+}
+.b-div{
+	height:3em;
 }
 .latex-popup .ip-search{
 	width: calc(100% - 16px);
@@ -72,11 +59,11 @@ left: 7px;
 
 .latex-popup .latex-list{
 	position: relative;
-	top: 5px;
-	bottom: 0;
-	overflow-y: scroll;
-	padding: 2px;
-	height:calc(300px - 90px - 55px);
+    top: 0px;
+    bottom: 0;
+    overflow-y: scroll;
+    padding: 5px;
+    height: calc(25em - 10.5em - 3em) !important;
 }
 .latex-list ul{
 	margin: 0;
@@ -87,16 +74,23 @@ left: 7px;
 .latex-popup .ip-control ul li{float: left;list-style-type: none;}
 .latex-popup .ip-control ul li a{margin-top: -3px;color:#373737;}
 .latex-popup .ip-control ul li:first-child{margin-left: 3px;}
-.latex-popup .ip-control ul li:last-child{position: absolute;right: 0;top: 9px;}
+.latex-popup .ip-control ul li:last-child{position: absolute;right: 0;}
 
 .latex-list ul li{
 	display: inline-block;
 	margin: 2px;
 	float: left;
-	border: 1px dotted #eee;
-	padding:1px;
-	width:49px;
-	height:49px;
+	background-color: #fff;
+	border: 1px dotted #ccc;
+	padding:0px;
+	width:4em;
+	height:6em;
+}
+
+.vh-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .latex-list ul li a{
@@ -104,7 +98,7 @@ left: 7px;
 	text-decoration: none;
 	color:#373737;
 	padding: 1px;
-	font-size:12px;
+	font-size:18px;
 }
 .latex-list ul li a:hover{color:#000;}
 
