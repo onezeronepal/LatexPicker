@@ -264,7 +264,7 @@
 	        	$('.selectpicker-latex').selectpicker('refresh');
 	        	$textAreaLatex = $('.textAreaOneZeroLatex');
 				$latexImg = $('.svgLaText');
-	        	$popup.append('<span style="position: fixed; top: 0px;right: 0px;padding: 5px;">ekSunye LatexPicker v0.0.1</span>').addClass('d-solid bg-light-90').show();
+	        	$popup.append('<span style="position: fixed; top: 0px;right: 0px;padding: 5px;">ekSunye LatexPicker v0.0.1</span>').addClass('d-solid bg-light').show();
 	        	
 	        	if(resImgLaTex === ""){ insert('$$$$',2,100); }
 
