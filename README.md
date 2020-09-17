@@ -3,10 +3,10 @@ Latex Picker just like DatePicker
 
 Demo at https://latex.opensource.onezero.com.np
 
-Just include https://latex.opensource.onezero.com.np/ekSunyeLatex.min.js?v=1.0.0 js at head
+Just include https://latex.opensource.onezero.com.np/v0.0.1/js/ekSunyeLatex.min.js js at head
 
 <pre>
-<script src="https://cdn.onezero.com.np/latex/ekSunyeLatex.min.js?v=1.0.0"></script>
+<script src="https://latex.opensource.onezero.com.np/v0.0.1/js/ekSunyeLatex.min.js"></script>
 </pre>
 <pre>
 <script type="text/javascript">
