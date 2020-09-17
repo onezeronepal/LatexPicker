@@ -99,7 +99,8 @@
 	        function createUI($element,$laTexParent){
 	        	$popup=$('<div/>',{
 	        		css: {
-		        		'opacity':0.93,
+		        		'opacity':1,
+						'z-index':999999,
 		        	},
 		        	class:'latex-popup'
 	        	})
