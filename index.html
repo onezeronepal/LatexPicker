@@ -1,63 +1,62 @@
+
 <!doctype html>
-<html>
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      <title>LaTex by ekSunye</title>
-      <!--<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">-->
-      <style type="text/css">
-         input{padding-bottom: 30px;}
-         .container { margin: 150px auto; }
-      </style>
-   </head>
-   <body>
-      <div id="wraper" class="container">
-	  Download/Fork at <a href="https://github.com/onezeronepal/LatexPicker">Github</a>
-         <form method="post">
-			<button type="button" id="btnAdd">Add</button>
-            <div class="container" id="mainQ">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Latex Picker like Date Picker or a On Screen Keyboard on v0.0.1, you just need a import a js from CDN and all is done">
+    <meta name="author" content="Kiran Pantha">
+    <link  rel="icon" type="image/png" href="https://onezero.com.np/fav/favicon-16x16.png">
+
+    <title>Cover Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>a,a:focus,a:hover{color:#fff}.btn-secondary,.btn-secondary:focus,.btn-secondary:hover{color:#333;text-shadow:none;background-color:#fff;border:.05rem solid #fff}body,html{height:100%;background-color:#333}body{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-pack:center;-webkit-box-pack:center;justify-content:center;color:#fff;text-shadow:0 .05rem .1rem rgba(0,0,0,.5);box-shadow:inset 0 0 5rem rgba(0,0,0,.5)}.cover-container{max-width:42em}.masthead{margin-bottom:2rem}.masthead-brand{margin-bottom:0}.nav-masthead .nav-link{padding:.25rem 0;font-weight:700;color:rgba(255,255,255,.5);background-color:transparent;border-bottom:.25rem solid transparent}.nav-masthead .nav-link:focus,.nav-masthead .nav-link:hover{border-bottom-color:rgba(255,255,255,.25)}.nav-masthead .nav-link+.nav-link{margin-left:1rem}.nav-masthead .active{color:#fff;border-bottom-color:#fff}@media (min-width:48em){.masthead-brand{float:left}.nav-masthead{float:right}}.cover{padding:0 1.5rem}.cover .btn-lg{padding:.75rem 1.25rem;font-weight:700}.mastfoot{color:rgba(255,255,255,.5)}</style>
+  </head>
+
+  <body class="text-center">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand"><img src="https://onezero.com.np/images/logo.png" height="64px"/> Opensource</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="#">v0.0.0</a>
+            <a class="nav-link" href="#">v0.0.1</a>
+            <a class="nav-link" href="https://onezero.com.np/">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <main role="container-fluid">
+        <h1 class="cover-heading text-left">Latex v0.0.1</h1>
+        <div class="container" id="mainQ">
 			    <div>
 				   <h3>What is the value of  \(\oint_{1}^{2} 3x^{3}\) ?</h3><br/>
-				   a) \(ax^{2} + bx + c\)
+				   
 				   <div class="row">
-					  <div class="col-6">	<input type="text" name="someName1" class="form-control select-latex" /></div>
-					  <div class="col-6">	<input type="text" name="someName1" class="form-control  select-latex" /></div>
+					  <div class="col-6 text-left"><label>a) \(ax^{2} + bx + c\)</label><input type="text" name="someName1" class="form-control select-latex" /></div>
+					  <div class="col-6 text-left"><label>a) \(ax^{2} + bx + c\)</label><input type="text" name="someName1" class="form-control select-latex" /></div>
 				   </div>
-				   <div class="row">
-					  <div class="col-6">	<input type="text" name="someName1" class="form-control select-latex"/></div>
-					  <div class="col-6">	<input type="text" name="someName1" class="form-control select-latex" /></div>
+				   <div class="row mt-1">
+					  <div class="col-6 text-left"><label>a) \(ax^{2} + bx + c\)</label><input type="text" name="someName1" class="form-control select-latex" /></div>
+					  <div class="col-6 text-left"><label>a) \(ax^{2} + bx + c\)</label><input type="text" name="someName1" class="form-control select-latex" /></div>
 				   </div>
 			   </div>
-            </div>
-         </form>
-      </div>
-      <!-- wraper -->
-      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-      <script src="js/eksunyeLatex.js"></script>
-      <script type="text/javascript">
-         $(function () {
-         	$(".select-latex").latexEditor();
-         });
-		 
-		$('#btnAdd').click(function(){
-			$('#mainQ').append('<div>'+
-			   '<h3>What is the value of  \\(\\oint_{1}^{2} 3x^{3}\\) ?</h3><br/>'+
-			   'a) \\(ax^{2} + bx + c\\)'+
-			   '<div class="row">'+
-				'  <div class="col-6">	<input type="text" name="someName1" class="form-control select-latex" /></div>'+
-				 ' <div class="col-6">	<input type="text" name="someName1" class="form-control  select-latex" /></div>'+
-			   '</div>'+
-			   '<div class="row">'+
-				'  <div class="col-6">	<input type="text" name="someName1" class="form-control select-latex"/></div>'+
-				 ' <div class="col-6">	<input type="text" name="someName1" class="form-control select-latex" /></div>'+
-			   '</div>'+
-			'</div>');
-			$(".select-latex").latexEditor();
-		});
-      </script>
-   </body>
+        </div>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
 </html>

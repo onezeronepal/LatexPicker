@@ -32,7 +32,7 @@
     document.head.appendChild(styleSelect);
     
     var styleSelect = document.createElement("link");
-    styleSelect.href = "file:///D:/Documents/GitHub/LatexPicker/css/eksunye-latex.v0.0.1.css";
+    styleSelect.href = "../css/eksunye-latex.css";
     styleSelect.rel = "stylesheet";
     document.head.appendChild(styleSelect);
     
@@ -104,7 +104,7 @@
 		        	class:'latex-popup'
 	        	})
 
-				var selectMatrix ='<div class="col-3">\
+				var selectMatrix ='<div class="col-2">\
 				           <select class="form-control selectMatrix selectpicker-latex">\
 								<option value="">Matrix</option>\
 								<option value="\\begin{matrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{matrix}">Matrix</option>\
@@ -114,7 +114,7 @@
 							</select>\
 							</div>';
 			
-								var selectColor ='<div class="col-3">\
+								var selectColor ='<div class="col-2">\
 				           <select class="form-control selectGreek selectpicker-latex">\
 								<option value="">α β γ</option>\
 								<option value="\\alpha">α</option>\
@@ -160,9 +160,9 @@
 					           </select>\
 				        </div>';
 				
-				var selectFunction = '<div class="col-3">'+
+				var selectFunction = '<div class="col-2">'+
 				'<select  class="form-control selectFuntion selectpicker-latex" title="Function">'+
-				'    <option selected="selected" value="">Æ’(x)</option>'+
+				'    <option selected="selected" value="">ƒ(x)</option>'+
 				'    <optgroup label="Trig">'+
 				'        <option value="\\sin">sin</option>'+
 				'        <option value="\\cos">cos</option>'+
@@ -224,18 +224,13 @@
 								<div class="container-fluid">\
 									<div class="row p-2">\
 										<div class="col-6" style="padding:2px">\
-											<textarea class="form-control textAreaOneZeroLatex ip-search w-100 h-100">'+resImgLaTex+'</textarea> \
+											<textarea style="height:6em !important;" class="form-control textAreaOneZeroLatex ip-search w-100 h-100">'+resImgLaTex+'</textarea> \
 										</div>\
 										<div class="col-4" style="font-size:12px;">\
 											<div class="svgLaText  h-75 w-100">'+resImgLaTex+'</div>\
 										</div>\
-										<div class="col-2">\
-											<span style="cursor:pointer;" onclick="$(\'.textAreaOneZeroLatex\').val($(\'.textAreaOneZeroLatex\').val().replace(\'\\\\(\', \'$$$$\'));$(\'.textAreaOneZeroLatex\').val($(\'.textAreaOneZeroLatex\').val().replace(\'\\\\)\', \'$$$$\'));">\
-												<span class="w-50 float-left"><b>\$\$</b>LaTex<b>\$\$</b></span> = Large Latex \
-											</span> <br/>\
-											<span  style="cursor:pointer;" onclick="$(\'.textAreaOneZeroLatex\').val($(\'.textAreaOneZeroLatex\').val().replace(\'$$\',\'\\\\(\'));$(\'.textAreaOneZeroLatex\').val($(\'.textAreaOneZeroLatex\').val().replace(\'$$\', \'\\\\)\'));">\
-												<span class="w-50 float-left"><b>\\(</b>LaTex<b>\\)</b></span> = Inline Latex \
-											</span>\
+										<div class="col-2 text-right">\
+											<button  type="button" class="w-100 btn btn-primary sendDataLatex text-white"><svg class="text-white" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.25 100.25"><path fill="white" d="M83.061 27.94l-11-11A1.5 1.5 0 0071 16.501H18a1.5 1.5 0 00-1.5 1.5v64a1.5 1.5 0 001.5 1.5h64a1.5 1.5 0 001.5-1.5v-53a1.5 1.5 0 00-.439-1.061zM34.5 19.5h31v21h-31v-21zm37 61h-43v-26h43v26zm9 0h-6V53a1.5 1.5 0 00-1.5-1.5H27a1.5 1.5 0 00-1.5 1.5v27.5h-6v-61h12V42a1.5 1.5 0 001.5 1.5h34a1.5 1.5 0 001.5-1.5V19.5h1.879L80.5 29.621V80.5z"/></svg> SAVE</button>\
 										</div>\
 									</div>\
 								</div>\
@@ -245,9 +240,21 @@
 									 '+selectMatrix+'\
 									 '+selectFunction+'\
 									 '+selectColor+'\
-									 <div class="col-3 text-right">\
-										<button  type="button" class="btn btn-primary sendDataLatex text-white"><svg class="text-white" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.25 100.25"><path fill="white" d="M83.061 27.94l-11-11A1.5 1.5 0 0071 16.501H18a1.5 1.5 0 00-1.5 1.5v64a1.5 1.5 0 001.5 1.5h64a1.5 1.5 0 001.5-1.5v-53a1.5 1.5 0 00-.439-1.061zM34.5 19.5h31v21h-31v-21zm37 61h-43v-26h43v26zm9 0h-6V53a1.5 1.5 0 00-1.5-1.5H27a1.5 1.5 0 00-1.5 1.5v27.5h-6v-61h12V42a1.5 1.5 0 001.5 1.5h34a1.5 1.5 0 001.5-1.5V19.5h1.879L80.5 29.621V80.5z"/></svg> SAVE</button>\
-									 </div>\
+									 <div class="col-2 text-right">&nbsp;</div>\
+									 <div class="col-4 text-center">\
+										<div class="row">\
+													<div class="col-6">\
+														<div class="form-control p-2" style="cursor:pointer;" onclick="$(\'.textAreaOneZeroLatex\').val($(\'.textAreaOneZeroLatex\').val().replace(\'\\\\(\', \'$$$$\'));$(\'.textAreaOneZeroLatex\').val($(\'.textAreaOneZeroLatex\').val().replace(\'\\\\)\', \'$$$$\')); $(\'.textAreaOneZeroLatex\').focus();">\
+															<div class="w-50 float-left"><b>\$\$</b>LaTex<b>\$\$</b></div> = Large Latex \
+														</div>\
+													</div>\
+													<div class="col-6">\
+														<div class="form-control p-2" style="cursor:pointer;" onclick="$(\'.textAreaOneZeroLatex\').val($(\'.textAreaOneZeroLatex\').val().replace(\'$$\',\'\\\\(\'));$(\'.textAreaOneZeroLatex\').val($(\'.textAreaOneZeroLatex\').val().replace(\'$$\', \'\\\\)\')); $(\'.textAreaOneZeroLatex\').focus();">\
+															<div class="w-50 float-left"><b>\\(</b>LaTex<b>\\)</b></div> = Inline Latex \
+														</div>\
+													</div>\
+												</div>\
+										</div>\
 								 </div>\
 							 </div>\
 						     <div class="container-fluid latex-list w-100 h-100">\
