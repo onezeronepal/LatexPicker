@@ -120,7 +120,7 @@
 				           <select class="form-control selectMatrix selectpicker-latex">\
 								<option value="" readonly>Extra</option>\
 								<option value="\\begin{aligned} \\end{aligned}">Align Box</option>\
-								<option value="\\displaylines{ Contents }">Matrix ||</option>\
+								<option value="\\displaylines{ Contents }">Multi Lines</option>\
 								<option value="\\\\">Next Line</option>\
 								<option value="&">Next Row</option>\
 							</select>\
