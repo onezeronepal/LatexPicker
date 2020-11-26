@@ -57,8 +57,8 @@
 		    mathmlSpacing: false,          // true for MathML spacing rules, false for TeX rules
 		    skipAttributes: {},            // RFDa and other attributes NOT to copy to the output
 		    exFactor: .5,                  // default size of ex in em units
-		    displayAlign: 'center',        // default for indentalign when set to 'auto'
-		    displayIndent: '0',            // default for indentshift when set to 'auto'
+		    displayAlign: 'left',        // default for indentalign when set to 'auto'
+		    displayIndent: 'left',            // default for indentshift when set to 'auto'
 		    fontCache: 'local',            // or 'global' or 'none'
 		    localID: null,                 // ID to use for local font cache (for single equation processing)
 		    internalSpeechTitles: true,    // insert <title> tags with speech content
@@ -69,7 +69,7 @@
     $.fn.latexEditor = function( options ) {
         var mouseOver=false;
         var $popup=null;
-		var latexValues = "[{\"label\":\"\\\\square\\\\underline{\\\\,}\\\\square\",\"insert\":\"insert('\\\\\\\\,')\"},{\"label\":\"\\\\square\\\\underline{\\\\:}\\\\square\",\"insert\":\"insert('\\\\\\\\:')\"},{\"label\":\"\\\\square\\\\underline{\\\\;}\\\\square\",\"insert\":\"insert('\\\\\\\\;')\"},{\"label\":\"\\\\square\\\\!\\\\square\",\"insert\":\"insert('\\\\\\\\!')\"},{\"label\":\"\\\\leftarrow\",\"insert\":\"insert('\\\\\\\\leftarrow')\"},{\"label\":\"\\\\rightarrow\",\"insert\":\"insert('\\\\\\\\rightarrow')\"},{\"label\":\"a^{\\\\circ}\",\"insert\":\"insert('^{\\\\\\\\circ}',0)\"},{\"label\":\"x^a\",\"insert\":\"insert('^{}',2,0)\"},{\"label\":\"x_a\",\"insert\":\"insert('_{}',2,0)\"},{\"label\":\"_a^{b}\\\\textrm{C}\",\"insert\":\"insert('_{}^{}\\\\\\\\textrm{}',2,14)\"},{\"label\":\"\\\\frac{a}{b}\",\"insert\":\"insert('\\\\\\\\frac{}{}',6)\"},{\"label\":\"x\\\\tfrac{a}{b}\",\"insert\":\"insert('\\\\\\\\tfrac{}{}',7)\"},{\"label\":\"\\\\int_a^b\",\"insert\":\"insert('\\\\\\\\int_{}^{}',6,1000)\"},{\"label\":\"\\\\oint_a^b\",\"insert\":\"insert('\\\\\\\\oint_{}^{}',7,1000)\"},{\"label\":\"\\\\iint_a^b\",\"insert\":\"insert('\\\\\\\\iint_{}^{}',7,1000)\"},{\"label\":\"\\\\bigcap_a^b\",\"insert\":\"insert('\\\\\\\\bigcap_{}^{}',9,1000)\"},{\"label\":\"\\\\bigcup_a^b\",\"insert\":\"insert('\\\\\\\\bigcup_{}^{}',9,1000)\"},{\"label\":\"\\\\displaystyle \\\\lim_{x \\\\to 0}\",\"insert\":\"insert('\\\\\\\\lim_{}',6,1000)\"},{\"label\":\"\\\\sum_a^b\",\"insert\":\"insert('\\\\\\\\sum_{}^{}',6)\"},{\"label\":\"\\\\sqrt{x}\",\"insert\":\"insert('\\\\\\\\sqrt{}',6,6)\"},{\"label\":\"\\\\sqrt[n]{x}\",\"insert\":\"insert('\\\\\\\\sqrt[]{}',6,8)\"},{\"label\":\"\\\\prod_a^b\",\"insert\":\"insert('\\\\\\\\prod_{}^{}',7,1000)\"},{\"label\":\"\\\\coprod_a^b\",\"insert\":\"insert('\\\\\\\\coprod_{}^{}',9,1000)\"},{\"label\":\"\\\\left (\\\\: \\\\right )\",\"insert\":\"insert('\\\\\\\\left ( \\\\\\\\right )',8)\"},{\"label\":\"\\\\left [\\\\: \\\\right ]\",\"insert\":\"insert('\\\\\\\\left [ \\\\\\\\right ]',8)\"},{\"label\":\"\\\\left\\\\{\\\\: \\\\right\\\\}\",\"insert\":\"insert('\\\\\\\\left \\\\\\\\{ \\\\\\\\right \\\\\\\\}',9)\"},{\"label\":\"\\\\left |\\\\: \\\\right |\",\"insert\":\"insert('\\\\\\\\left | \\\\\\\\right |',8)\"},{\"label\":\"\\\\left \\\\{ \\\\cdots \\\\right.\",\"insert\":\"insert('\\\\\\\\left \\\\\\\\{ \\\\\\\\right.',9)\"},{\"label\":\"\\\\left \\\\|\\\\: \\\\right \\\\|\",\"insert\":\"insert('\\\\\\\\left \\\\\\\\| \\\\\\\\right \\\\\\\\|',9)\"},{\"label\":\"\\\\left \\\\langle \\\\: \\\\right \\\\rangle\",\"insert\":\"insert('\\\\\\\\left \\\\\\\\langle \\\\\\\\right \\\\\\\\rangle',14)\"},{\"label\":\"\\\\left \\\\lfloor \\\\: \\\\right \\\\rfloor\",\"insert\":\"insert('\\\\\\\\left \\\\\\\\lfloor \\\\\\\\right \\\\\\\\rfloor',14)\"},{\"label\":\"\\\\left \\\\lceil \\\\: \\\\right \\\\rceil\",\"insert\":\"insert('\\\\\\\\left \\\\\\\\lceil \\\\\\\\right \\\\\\\\rceil',13)\"},{\"label\":\"\\\\left. \\\\cdots \\\\right \\\\}\",\"insert\":\"insert('\\\\\\\\left. \\\\\\\\right \\\\\\\\}',7)\"},{\"label\":\"\\\\mathbf{A1}\",\"insert\":\"insert('\\\\\\\\mathbf{}')\"},{\"label\":\"\\\\mathit{A1}\",\"insert\":\"insert('\\\\\\\\mathit{}')\"},{\"label\":\"\\\\mathrm{Aa1}\",\"insert\":\"insert('\\\\\\\\mathrm{}')\"},{\"label\":\"\\\\mathfrak{Aa1}\",\"insert\":\"insert('\\\\\\\\mathfrak{}')\"},{\"label\":\"\\\\mathbb{Aa1}\",\"insert\":\"insert('\\\\\\\\mathbb{}')\"},{\"label\":\"\\\\textbf{Aa1}\",\"insert\":\"insert('\\\\\\\\textbf{}')\"},{\"label\":\"\\\\textit{Aa1}\",\"insert\":\"insert('\\\\\\\\textit{}')\"},{\"label\":\"\\\\textrm{Aa1}\",\"insert\":\"insert('\\\\\\\\textrm{}')\"},{\"label\":\"\\\\texttt{Aa1}\",\"insert\":\"insert('\\\\\\\\texttt{}')\"}]";
+		var latexValues = "[{\"label\":\"\\\\square\\\\underline{\\\\,}\\\\square\",\"insert\":\"insert('\\\\\\\\,')\"},{\"label\":\"\\\\square\\\\underline{\\\\:}\\\\square\",\"insert\":\"insert('\\\\\\\\:')\"},{\"label\":\"\\\\square\\\\underline{\\\\;}\\\\square\",\"insert\":\"insert('\\\\\\\\;')\"},{\"label\":\"\\\\square\\\\!\\\\square\",\"insert\":\"insert('\\\\\\\\!')\"},{\"label\":\"\\\\leftarrow\",\"insert\":\"insert('\\\\\\\\leftarrow')\"},{\"label\":\"\\\\rightarrow\",\"insert\":\"insert('\\\\\\\\rightarrow')\"},{\"label\":\"a^{\\\\circ}\",\"insert\":\"insert('^{\\\\\\\\circ}',0)\"},{\"label\":\"x^a\",\"insert\":\"insert('^{}',2,0)\"},{\"label\":\"x_a\",\"insert\":\"insert('_{}',2,0)\"},{\"label\":\"_a^{b}\\\\textrm{C}\",\"insert\":\"insert('_{}^{}\\\\\\\\textrm{}',2,14)\"},{\"label\":\"\\\\frac{a}{b}\",\"insert\":\"insert('\\\\\\\\frac{}{}',6)\"},{\"label\":\"x\\\\tfrac{a}{b}\",\"insert\":\"insert('\\\\\\\\tfrac{}{}',7)\"},{\"label\":\"\\\\int_a^b\",\"insert\":\"insert('\\\\\\\\int_{}^{}',6,1000)\"},{\"label\":\"\\\\oint_a^b\",\"insert\":\"insert('\\\\\\\\oint_{}^{}',7,1000)\"},{\"label\":\"\\\\iint_a^b\",\"insert\":\"insert('\\\\\\\\iint_{}^{}',7,1000)\"},{\"label\":\"\\\\bigcap_a^b\",\"insert\":\"insert('\\\\\\\\bigcap_{}^{}',9,1000)\"},{\"label\":\"\\\\bigcup_a^b\",\"insert\":\"insert('\\\\\\\\bigcup_{}^{}',9,1000)\"},{\"label\":\"\\\\displaystyle \\\\lim_{x \\\\to 0}\",\"insert\":\"insert('\\\\\\\\lim_{}',6,1000)\"},{\"label\":\"\\\\sum_a^b\",\"insert\":\"insert('\\\\\\\\sum_{}^{}',6)\"},{\"label\":\"\\\\sqrt{x}\",\"insert\":\"insert('\\\\\\\\sqrt{}',6,6)\"},{\"label\":\"\\\\sqrt[n]{x}\",\"insert\":\"insert('\\\\\\\\sqrt[]{}',6,8)\"},{\"label\":\"\\\\prod_a^b\",\"insert\":\"insert('\\\\\\\\prod_{}^{}',7,1000)\"},{\"label\":\"\\\\coprod_a^b\",\"insert\":\"insert('\\\\\\\\coprod_{}^{}',9,1000)\"},{\"label\":\"\\\\left (\\\\: \\\\right )\",\"insert\":\"insert('\\\\\\\\left ( \\\\\\\\right )',8)\"},{\"label\":\"\\\\left [\\\\: \\\\right ]\",\"insert\":\"insert('\\\\\\\\left [ \\\\\\\\right ]',8)\"},{\"label\":\"\\\\left\\\\{\\\\: \\\\right\\\\}\",\"insert\":\"insert('\\\\\\\\left \\\\\\\\{ \\\\\\\\right \\\\\\\\}',9)\"},{\"label\":\"\\\\left |\\\\: \\\\right |\",\"insert\":\"insert('\\\\\\\\left | \\\\\\\\right |',8)\"},{\"label\":\"\\\\left \\\\{ \\\\cdots \\\\right.\",\"insert\":\"insert('\\\\\\\\left \\\\\\\\{ \\\\\\\\right.',9)\"},{\"label\":\"\\\\left \\\\|\\\\: \\\\right \\\\|\",\"insert\":\"insert('\\\\\\\\left \\\\\\\\| \\\\\\\\right \\\\\\\\|',9)\"},{\"label\":\"\\\\left \\\\langle \\\\: \\\\right \\\\rangle\",\"insert\":\"insert('\\\\\\\\left \\\\\\\\langle \\\\\\\\right \\\\\\\\rangle',14)\"},{\"label\":\"\\\\left \\\\lfloor \\\\: \\\\right \\\\rfloor\",\"insert\":\"insert('\\\\\\\\left \\\\\\\\lfloor \\\\\\\\right \\\\\\\\rfloor',14)\"},{\"label\":\"\\\\left \\\\lceil \\\\: \\\\right \\\\rceil\",\"insert\":\"insert('\\\\\\\\left \\\\\\\\lceil \\\\\\\\right \\\\\\\\rceil',13)\"},{\"label\":\"\\\\left. \\\\cdots \\\\right \\\\}\",\"insert\":\"insert('\\\\\\\\left. \\\\\\\\right \\\\\\\\}',7)\"},{\"label\":\"\\\\mathbf{A1}\",\"insert\":\"insert('\\\\\\\\mathbf{}')\"},{\"label\":\"\\\\mathit{A1}\",\"insert\":\"insert('\\\\\\\\mathit{}')\"},{\"label\":\"\\\\mathrm{Aa1}\",\"insert\":\"insert('\\\\\\\\mathrm{}')\"},{\"label\":\"\\\\mathfrak{Aa1}\",\"insert\":\"insert('\\\\\\\\mathfrak{}')\"},{\"label\":\"\\\\mathbb{Aa1}\",\"insert\":\"insert('\\\\\\\\mathbb{}')\"},{\"label\":\"\\\\textbf{Aa1}\",\"insert\":\"insert('\\\\\\\\textbf{}')\"},{\"label\":\"\\\\textit{Aa1}\",\"insert\":\"insert('\\\\\\\\textit{}')\"},{\"label\":\"\\\\textrm{Aa1}\",\"insert\":\"insert('\\\\\\\\textrm{}')\"},{\"label\":\"\\\\texttt{Aa1}\",\"insert\":\"insert('\\\\\\\\texttt{}')\"},{\"label\":\"\\\\text{Aa1}\",\"insert\":\"insert('\\\\\\\\text{}')\"}]";
 		var icons = JSON.parse(latexValues);
 		var settings = $.extend({
         	
@@ -107,11 +107,22 @@
 
 				var selectMatrix ='<div class="col-2">\
 				           <select class="form-control selectMatrix selectpicker-latex">\
-								<option value="">Matrix</option>\
-								<option value="\\begin{matrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{matrix}">Matrix</option>\
+								<option value="" readonly>Matrix</option>\
 								<option value="\\begin{bmatrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{bmatrix}">Matrix []</option>\
-								<option value="\\begin{pmatrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{pmatrix}">Matrix {}</option>\
-								<option value="\\begin{smatrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{smatrix}">Matrix ()</option>\
+								<option value="\\begin{pmatrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{pmatrix}">Matrix ()</option>\
+								<option value="\\begin{Bmatrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{Bmatrix}">Matrix {}</option>\
+								<option value="\\begin{Vmatrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{Vmatrix}">Matrix ||</option>\
+								<option value="\\begin{matrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{matrix}">Matrix EMPTY</option>\
+							</select>\
+							</div>';
+							
+				var selectExtra ='<div class="col-2">\
+				           <select class="form-control selectMatrix selectpicker-latex">\
+								<option value="" readonly>Extra</option>\
+								<option value="\\begin{aligned} \\end{aligned}">Align Box</option>\
+								<option value="\\displaylines{ Contents }">Matrix ||</option>\
+								<option value="\\\\">Next Line</option>\
+								<option value="&">Next Row</option>\
 							</select>\
 							</div>';
 			
@@ -241,7 +252,7 @@
 									 '+selectMatrix+'\
 									 '+selectFunction+'\
 									 '+selectColor+'\
-									 <div class="col-2 text-right">&nbsp;</div>\
+									 '+selectExtra+'\
 									 <div class="col-4 text-center">\
 										<div class="row">\
 													<div class="col-6">\
@@ -292,6 +303,16 @@
 	            });
 				
 				$(".selectpicker-latex",$popup).change(function(){
+					var laText = $(this).val()+' ';
+					var initCur = $textAreaLatex.getCursorPosition();
+					$textAreaLatex.insertLaText(laText);
+					$latexImg.html($textAreaLatex.val());
+					$textAreaLatex.selectRange(initCur + laText.length);
+					$(this).selectpicker('refresh');
+					$textAreaLatex.focus();
+				})
+				
+				$(".selectpicker-latex-matrix",$popup).change(function(){
 					var laText = $(this).val()+' ';
 					var initCur = $textAreaLatex.getCursorPosition();
 					$textAreaLatex.insertLaText(laText);
