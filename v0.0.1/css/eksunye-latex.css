@@ -5,11 +5,12 @@
     * Intigrated, Processed and  Built with passion by @titosust; Web Developer @vizrt
   */
 
-  .latex-popup{
+.latex-popup{
 	position: fixed;
 	width: 100vw;
-	height: 25em;
-	top:calc(100vh - 25em);
+	height: 100vh;
+	/*top:calc(100vh - 25em);*/
+	top:0px;
 	left:0px;
 	right:0px;
 	bottom:0px;
@@ -113,4 +114,20 @@
 }
 .dropDown{
 	height:35px;
+}
+
+.font-awesome-spin {
+  animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
