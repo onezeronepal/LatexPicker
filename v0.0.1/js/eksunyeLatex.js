@@ -78,7 +78,7 @@
         	element=this;
 			var textAreaLatex = $('.textAreaOneZeroLatex');
             if(!settings.buttonOnly && $(this).data("latexPicker")==undefined ){
-				setTimeout(function(){ try{ MathJax.typeset(); }catch(err){ try{ MathJax.typeset(); }catch(err){ var a =1; } } }, 1000);   		
+				setTimeout(function(){ try{ MathJax.typesetPromise(); }catch(err){ try{ MathJax.typesetPromise(); }catch(err){ var a =1; } } }, 1000);   		
             	$this=$(this).addClass("form-control");
             	$wraper=$("<div/>",{class:"input-group w-100 float-left"});
             	$this.wrap($wraper);
@@ -89,7 +89,7 @@
             		$button.click(function(){
 			       		createUI(ele,elemObj);
 			       		showList(ele,icons);
-			    		setTimeout(function(){ try{ MathJax.typeset(); }catch(err){ try{ MathJax.typeset(); }catch(err){ var a =1; } } }, 1000);   		
+			    		setTimeout(function(){ try{ MathJax.typesetPromise(); }catch(err){ try{ MathJax.typesetPromise(); }catch(err){ var a =1; } } }, 1000);   		
 	            	});
 	            })($this);
 
@@ -390,7 +390,8 @@
 			window.refreshLatex = function()
 			{
 				$latexImg.html($textAreaLatex.val());
-				setTimeout(function(){ try{ MathJax.typeset(); }catch(err){ try{ MathJax.typeset(); }catch(err){ var a =1; } } }, 1000);   
+				MathJax.typesetPromise();
+				//setTimeout(function(){ try{ MathJax.typeset(); }catch(err){ try{ MathJax.typeset(); }catch(err){ var a =1; } } }, 1000);   
 			}
 			
 			window.hasClass = function(elem,className)
