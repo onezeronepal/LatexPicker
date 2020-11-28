@@ -234,7 +234,7 @@
 				if($laTexParent.val() == ""){ resImgLaTex = "";  }else{ resImgLaTex = $laTexParent.val();  }
 	        	$popup.html('<div style="height: calc(100vh - 25em); overflow-y:scroll;" class="container-fluid bg-white text-dark">\
 									<div class="w-100 text-center d-none loadingLatex"><svg class="font-awesome-spin" width="20" height="20" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="spinner" class="svg-inline--fa fa-spinner fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"></path></svg></div>\
-									<div class="svgLaText  h-100 w-100">'+resImgLaTex+'</div>\
+									<div class="svgLaText w-100">'+resImgLaTex+'</div>\
 							</div>\
 							<div style="height:25em;">\
 								<div class="a-div w-100"> \
@@ -258,7 +258,7 @@
 										 <div class="col-4 text-center">\
 											<div class="row">\
 														<div class="col-6">\
-															<div class="form-control p-2" style="cursor:pointer;" onclick="$(\'.textAreaOneZeroLatex\').val($(\'.textAreaOneZeroLatex\').val().replace(\'\\\\(\', \'$$$$\'));$(\'.textAreaOneZeroLatex\').val($(\'.textAreaOneZeroLatex\').val().replace(\'\\\\)\', \'$$$$\')); $(\'.textAreaOneZeroLatex\').focus();">\
+															<div class="form-control p-2" style="cursor:pointer;" onclick="$(\'.textAreaOneZeroLatex\').val($(\'.textAreaOneZeroLatex\').val().replace(\'\\\\(\', \'$$$$\'));$(\'.textAreaOneZeroLatex\').val($(\'.textAreaOneZeroLatex\').val().replace(\'\\\\)\', \'$$$$\')); $(\'.textAreaOneZeroLatex\').focus(); $(\'.textAreaOneZeroLatex\').trigger(\'change\');">\
 																<div class="w-50 float-left"><b>\$\$</b>LaTex<b>\$\$</b></div> = Large Latex \
 															</div>\
 														</div>\
@@ -307,7 +307,7 @@
 	                }
 	            });
 				
-				$(".selectpicker-latex",$popup).click(function(){
+				$(".selectpicker-latex",$popup).change(function(){
 					var laText = $(this).val()+' ';
 					var initCur = $textAreaLatex.getCursorPosition();
 					$textAreaLatex.insertLaText(laText);
@@ -315,9 +315,10 @@
 					$textAreaLatex.selectRange(initCur + laText.length);
 					$(this).selectpicker('refresh');
 					$textAreaLatex.focus();
+					$(".selectpicker-latex option").prop("selected", false);
 				})
 				
-				$(".selectpicker-latex-matrix",$popup).click(function(){
+				$(".selectpicker-latex-matrix",$popup).change(function(){
 					var laText = $(this).val()+' ';
 					var initCur = $textAreaLatex.getCursorPosition();
 					$textAreaLatex.insertLaText(laText);
@@ -325,14 +326,9 @@
 					$textAreaLatex.selectRange(initCur + laText.length);
 					$(this).selectpicker('refresh');
 					$textAreaLatex.focus();
+					$(".selectpicker-latex-matrix option").prop("selected", false);
 				})
 				
-				var timer = null;
-				$textAreaLatex.keyup(function(){
-				   clearTimeout(timer); 
-				   timer = setTimeout(refreshLatex(), 2000);
-				});
-
 	        	$('.btn-close-latex',$popup).click(function(){
 					removeInstance();
 				});
@@ -344,14 +340,15 @@
 				});
 				
 				var OldStringEkSunyeLatexPickerVar;
-
-				/*$('body').on('keyup keypress blur change', 'textarea.textAreaOneZeroLatex', function() {
-					if(OldStringEkSunyeLatexPickerVar != $(this).val())
+				var timer = null;
+				setInterval(function(){
+					if(OldStringEkSunyeLatexPickerVar != $textAreaLatex.val())
 					{   
-						refreshLatex();
-						OldStringEkSunyeLatexPickerVar = $(this).val();
+						clearTimeout(timer); 
+						timer = setTimeout(refreshLatex(), 2000);
+						OldStringEkSunyeLatexPickerVar = $textAreaLatex.val();
 					}
-				});*/
+				},2000);
 
 	        }
 	        function removeInstance(){
