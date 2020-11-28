@@ -330,11 +330,11 @@
 				var timer = null;
 				$textAreaLatex.keyup(function(){
 				   clearTimeout(timer); 
-				   timer = setTimeout(refreshLatex(), 1000);
+				   timer = setTimeout(refreshLatex(), 2000);
 				});
 
 	        	$('.btn-close-latex',$popup).click(function(){
-					alert('1');
+					removeInstance();
 				});
 	        	
 	        	$(document).mouseup(function (e){
