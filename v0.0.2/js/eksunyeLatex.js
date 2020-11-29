@@ -57,9 +57,9 @@
 		    mathmlSpacing: false,          // true for MathML spacing rules, false for TeX rules
 		    skipAttributes: {},            // RFDa and other attributes NOT to copy to the output
 		    exFactor: .5,                  // default size of ex in em units
-		    displayAlign: 'left',        // default for indentalign when set to 'auto'
-		    displayIndent: 'left',            // default for indentshift when set to 'auto'
-		    fontCache: 'global',            // or 'global' or 'none'
+		    displayAlign: 'left',          // default for indentalign when set to 'auto'
+		    displayIndent: 'left',         // default for indentshift when set to 'auto'
+		    fontCache: 'global',           // or 'global' or 'none'
 		    localID: null,                 // ID to use for local font cache (for single equation processing)
 		    internalSpeechTitles: true,    // insert <title> tags with speech content
 		    titleID: 0                     // initial id number to use for aria-labeledby titles
@@ -111,7 +111,7 @@
 								<option value="\\begin{pmatrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{pmatrix}">Matrix ()</option>\
 								<option value="\\begin{Bmatrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{Bmatrix}">Matrix {}</option>\
 								<option value="\\begin{Vmatrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{Vmatrix}">Matrix ||</option>\
-								<option value="\\begin{matrix} &  & \\\\  &  & \\\\  &  & \\\\ \\end{matrix}">Matrix EMPTY</option>\
+								<option value="\\begin{matrix} 	&  & \\\\  &  & \\\\  &  & \\\\ \\end{matrix}">Matrix EMPTY</option>\
 							</select>\
 							</div>';
 							
