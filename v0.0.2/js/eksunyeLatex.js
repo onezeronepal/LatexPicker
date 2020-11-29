@@ -32,8 +32,7 @@
     document.head.appendChild(styleSelect);
 
     var styleSelect = document.createElement("link");
-    //styleSelect.href = "https://latex.opensource.onezero.com.np/v0.0.1/css/eksunye-latex.css";
-    styleSelect.href = "css/eksunye-latex.css";
+    styleSelect.href = "https://latex.opensource.onezero.com.np/v0.0.2/css/eksunye-latex.css";
     styleSelect.rel = "stylesheet";
     document.head.appendChild(styleSelect);
 	   
