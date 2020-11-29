@@ -19,7 +19,7 @@
     document.head.appendChild(scriptPoly);
 	
 	var script = document.createElement("script");  // create a script DOM node
-    script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";  // set its src to the provided URL
+    script.src = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";  // set its src to the provided URL
     document.head.appendChild(script);
     
     var scriptSelect = document.createElement("script");  // create a script DOM node
@@ -90,7 +90,6 @@
             		$button.click(function(){
 			       		createUI(ele,elemObj);
 			       		showList(ele,icons);
-			    		setTimeout(function(){ try{ MathJax.typesetPromise(); }catch(err){ try{ MathJax.typesetPromise(); }catch(err){ var a =1; } } }, 1000);   		
 	            	});
 	            })($this);
 
@@ -391,7 +390,8 @@
 			window.refreshLatex = function()
 			{
 				$latexImg.html($textAreaLatex.val());
-				MathJax.typesetPromise();
+				//MathJax.typesetPromise();
+				MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 				//setTimeout(function(){ try{ MathJax.typeset(); }catch(err){ try{ MathJax.typeset(); }catch(err){ var a =1; } } }, 1000);   
 			}
 			

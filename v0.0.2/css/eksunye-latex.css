@@ -1,0 +1,133 @@
+/*!
+    * Bootstrap 3.0 IconPicker Style
+    * Custom Style Elements for IconPicker
+    *
+    * Intigrated, Processed and  Built with passion by @titosust; Web Developer @vizrt
+  */
+
+.latex-popup{
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	/*top:calc(100vh - 25em);*/
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	color: #000;
+	font-size: 14px;
+}
+
+.bg-light-90{
+	background-color: #eee;
+}
+
+.latex-popup a:hover{
+	background-color:#eee;
+}
+.latex-popup .latex-title{
+	position: relative;
+	background-color: #563d7c;
+	color: #fff;
+	border: 1px solid #463265;
+	
+}
+.latex-popup .latex-title h4{
+	margin: 0;
+	padding: 8px 8px;
+	font-size: 17px;
+	font-weight: bold;
+}
+.pointer{
+	cursor: pointer;
+}
+.latex-popup .ip-control{
+	background-color: white;
+	border-bottom: 1px solid #e5e5e5;
+}
+.a-div{
+	height:8em;
+}
+.b-div{
+	height:3em;
+}
+.latex-popup .ip-search{
+	width: calc(100% - 16px);
+	padding:1px;
+	margin-left: 8px;
+	background-repeat: no-repeat;
+}
+
+.latex-popup .latex-list{
+	position: relative;
+    top: 0px;
+    bottom: 0;
+    overflow-y: scroll;
+    padding: 5px;
+    height: calc(25em - 10.5em - 3em) !important;
+}
+.latex-list ul{
+	margin: 0;
+	padding: 0;
+	margin-bottom: 10px;
+}
+.latex-popup .ip-control ul{margin: 4px 0;padding: 0;}
+.latex-popup .ip-control ul li{float: left;list-style-type: none;}
+.latex-popup .ip-control ul li a{margin-top: -3px;color:#373737;}
+.latex-popup .ip-control ul li:first-child{margin-left: 3px;}
+.latex-popup .ip-control ul li:last-child{position: absolute;right: 0;}
+
+.latex-list ul li{
+	display: inline-block;
+	margin: 2px;
+	float: left;
+	background-color: #fff;
+	border: 1px dotted #ccc;
+	padding:0px;
+	width:4em;
+	height:6em;
+}
+
+.vh-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.latex-list ul li a{
+	display: block;
+	text-decoration: none;
+	color:#373737;
+	padding: 1px;
+	font-size:18px;
+}
+.latex-list ul li a:hover{color:#000;}
+
+.textArea{
+	height: 70px !important;
+	margin: 10px;
+	width: calc(100% - 20px);
+}
+.selectColor .selectFunction{
+	font-size:12px;
+	padding:0px;
+}
+.dropDown{
+	height:35px;
+}
+
+.font-awesome-spin {
+  animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
