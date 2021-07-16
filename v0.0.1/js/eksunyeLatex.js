@@ -44,6 +44,7 @@
 			inlineMath: [ ['$','$'], ["\\(","\\)"] ],
 			processEscapes: true
 		},
+		loader: {load: ['[tex]/mhchem']},
 		options: {
 			renderActions: {
 				addMenu: [0, '', '']
